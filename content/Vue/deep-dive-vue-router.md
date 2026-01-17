@@ -6,7 +6,7 @@ tags:
 date: 2025-04-10
 draft: false
 ---
-## Vue.js를 공부하는 이유
+# Vue.js를 공부하는 이유
 현재 회사에서 내가 들어오기 전, ERP 프로젝트를 진행하고 있었다. 내가 합류했을 당시에는 Thymeleaf + Spring 조합으로 진행하는 걸로 이야기가 됐었지만,
 UI에 대한 이슈가 너무 컸었다.
 
@@ -15,19 +15,19 @@ UI에 대한 이슈가 너무 컸었다.
 
 나름 풀스택에 대한 로망도 있었고 프론트엔드 프레임워크도 하나쯤 배워두는것도 좋은 경험이 될 것 같아 흔쾌히 진행하겠다고 했다 (강의 제공 등 편의를 많이 봐주신 것도 한 몫 했다.)
 
-## vue-router가 무엇일까?
+# vue-router가 무엇일까?
 vue-router는 Vue에서 제공하는 SPA를 만들기 위한 공식 라우팅 라이브러리이다.
 일반적으로 페이지 이동 시, 전체 페이지를 새로고침하지만, Vue에서는 컴포넌트 단위로 화면만 바뀌도록 구성할 수 있다.
 
 ## 사용법
 
-### 0. terminal
+## 0. terminal
 ```terminal
 npm install vue-router
 ```
 
-### 1. `router` > `index.js`
-```js
+## 1. router 지정
+```js title="router > index.js"
 import { createRouter, createWebHistory } from 'src/post/vue/vue-router.mdx'
 import AboutView from '@/views/AboutView.vue'
 import HomeView from '@/views/HomeView.vue'
@@ -47,8 +47,8 @@ export default router
 * `routes` 배열에 각 경로와 연결한 컴포넌트를 지정한다.
 * `createRouter`를 사용하여 라우터 인스턴스 생성, `History` 모드와 이전에 선언했던 `routes`를 설정한다.
 
-### 2. `main.js`
-```js
+## 2. router 등록
+```js title="main.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -61,8 +61,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 ```
 * `use(router)` 를 등록한다
 
-### 3. `layouts` > `AppView.vue`
-```js
+## 3. RouterView
+```vue title="layouts > AppView.vue"
 <template>
   <div class="container py-4">
     <RouterView></RouterView>
@@ -77,8 +77,8 @@ export default {}
 ```
 * `<RouterView>` 컴포넌트를 활용하여 경로에 따라 알맞은 페이지 컴포넌트를 렌더링 한다.
 
-### 4. `layouts` > `AppHeader.vue`
-```javascript
+## 4. RouterLink
+```vue title="layouts > AppHeader.vue"
 <template>
   <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
@@ -108,9 +108,10 @@ export default {}
 * `<RouterLink>` 컴포넌트를 활용, `to`옵션으로 경로 지정을 해준다.
 * 이를 통해 페이지 새로고침 없이 `Vue Router`가 내부적으로 경로를 전환
 
-## 추가
-### 1. `useRouter`
-```javascript
+# Additional
+## 1. 라우터 지정
+
+```vue title="useRouter" {12-14}
 <template>
   <div>
     <h2>Home View</h2>
@@ -119,18 +120,19 @@ export default {}
 </template>
 
 <script setup>
-import { useRouter } from 'src/post/vue/vue-router.mdx'
+import { useRouter } from 'vue-router'
+
 const router = useRouter()
 const goAboutPage = () => {
     router.push('/about')
 }
 </script>
 ```
+
 * `@click`에 커스텀 메서드인 `goAboutPage` 메서드를 지정, `router.push` 메서드로 구현
 
-### 2. 동적 경로
-* `router` > `index.js`
-```javascript
+## 2. 동적 경로
+```javascript title="router > index.js"
 // ... 생략
 
 const routes = [
@@ -154,7 +156,7 @@ const routes = [
     * `$route.query` > `/posts/alice?search=vue3`로 요청 시, `{"search", vue3}` 출력
     * `$route.hash` > `/posts/alice#hashvalue`로 요청 시, `#hashvalue` 출력
 
-### 3. 404 Not Found
+## 3. 404 Not Found
 * `:id`처럼 일반 파라미터는 URL 경로 중 슬래시(`/`)로 구분된 하나의 세그먼트만 매칭된다.
     * `/user/123` > `:id`는 `123`과 매칭
     * `/user/123/abc` > `:id`는 `123` 까지만 매칭되고 이후는 별도의 `route` 필요
@@ -171,10 +173,9 @@ const routes = [
 * `/:pathMatch(.*)*`는 어떤 경로든 모두 매칭되며, 주로 `404 Not Found`처리에 사용
     * 여기서 `(.*)`는 모든 문자열을 의미하며, `*`를 붙여 여러 세그먼트까지 포함
 
-### 4. 중첩 라우트
+## 4. 중첩 라우트
 * 특정 페이지 안에 `RouterView`를 중첩하여 설정할 수 있다.
-* `router` > `index.js`
-```javascript
+```javascript title="router > index.js"
 import NotFoundView from '@/views/NotFoundView.vue'
 const routes = [
     // ... 생략

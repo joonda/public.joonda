@@ -6,13 +6,12 @@ tags:
 date: 2025-08-18
 draft: false
 ---
-
-## 들어가며
+# 들어가며
 웹 개발자라면 개발 시 꼭 한번 부딪히는 문제인 CORS, 프론트엔드 Frontend, Backend를 연결하는 과정에서 콘솔 창에서 아래 에러를 한 번쯤 봤을 것이다.
 ![CORS Error](../img/cors-error.png)
 대부분 Spring에서 기본적으로 제공하는 주석인 `@CrossOrigin`이나 혹은 `Spring Security`로 설정을 하는 경우가 대부분이다. 해당 부분에 대해 정확히 어떤 원리로 동작하는 지 이해해보자.
 
-## CORS가 뭔데?
+# CORS가 뭔데?
 `Cross-Origin-Resource-Sharing`의 약자로, 웹 브라우저에서 자신의 브라우저 출처가 아닌, 다른 출처에서(domain, port 포함) 자원을 로딩하는 것을 제어하는 규칙이다. <br />
 ![CORS](../img/cors-img.png)
 
@@ -38,8 +37,6 @@ Access-Control-Allow-Credentials: true
 
 ### API 응답
 ![CORS 응답 헤더](../img/cors-response-header.png)
-
-
-## Reference
+# Reference
 - [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/CORS)
 - [Udemy Lecture](https://www.udemy.com/course/spring-security-6-jwt-oauth2-korean/?couponCode=KEEPLEARNING)
