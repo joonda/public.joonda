@@ -2,7 +2,7 @@
 title: 2025 돌아보기
 description: Retrospect-2025
 tags:
-  - Retrospect
+  - Thought
 date: 12-29-2025
 draft: false
 ---

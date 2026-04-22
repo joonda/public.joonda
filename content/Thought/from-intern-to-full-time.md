@@ -2,7 +2,7 @@
 title: 입사 3개월 차, 이젠 정규직입니다.
 description: from-intern-to-full-time
 tags:
-  - Retrospect
+  - Thought
 date: 2025-07-30
 draft: false
 ---

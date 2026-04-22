@@ -2,7 +2,7 @@
 title: 오픈소스 컨트리뷰터 아카데미 참여 후기
 description: pytorch-tutorial-translation-contribute
 tags:
-  - Retrospect
+  - Thought
 date: 2025-10-31
 draft: false
 ---

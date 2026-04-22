@@ -2,7 +2,7 @@
 title: 크리스마스에 작성하는 2024 돌아보기
 description: Retrospect-2024
 tags:
-  - Retrospect
+  - Thought
 date: 2024-12-25
 draft: false
 ---
